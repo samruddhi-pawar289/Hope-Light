@@ -1,0 +1,146 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} 
+body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color:rgb(255, 251, 245);
+  color: black;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("{{ 'inter-regular.woff2' | asset_url }}") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+/* Navigation container */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  background-color:rgb(255, 255, 255);
+  padding: 16px 32px;
+
+}
+
+.nav-container ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+
+.nav-container li {
+    border-radius: 8px;
+}
+
+/* Link */
+.nav-container a {
+    display: block;
+    padding: 10px 20px;
+    border-radius: 8px;
+
+    text-decoration: none;
+    color: black;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover */
+.nav-container li:hover {
+    background-color: #e8f5ef;
+}
+
+/* Current page */
+.nav-container li.active {
+    background-color: #0f684a;
+}
+
+/* Text of current page */
+.nav-container li.active a {
+    color: white;
+}
+/* logo */
+#logo{
+  padding: 5px 5px;
+}
+/* Navigation bar*/
+.nav-container ul{
+  transition: color 0.3s ease;
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  justify-content: right;
+  cursor: pointer;
+}
+
+/* ========================counter box first page========================*/
+.counter_box{
+  width: 100%;
+  height: fit-content;
+}
+#analytics_textinfo h1{
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+#analytics_textinfo h6{
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* =================================curtain revel=================================*/
+
+#analytics_textinfo {
+    opacity: 0;
+    transform: translateX(-50px);
+    padding-left: 10px;
+}
+
+#analytics_textinfo.reveal {
+    animation: textReveal 1s ease-out forwards;
+}
+
+@keyframes textReveal {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* =========================counter boxes==================================== */
+.counter_box ul{
+  list-style: none;
+  
+
+}
+#populationcounter h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+.sub_counter ul {
+  display: flex;
+  font-family: "dosis",sans-serif;
+  list-style: none;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  height: 10vh;
+  width: 50vvw;
+
+}
+
