@@ -82,7 +82,17 @@ body {
 }
 
 /* ========================counter box first page========================*/
+#analytics_textinfo {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    padding-left: 10px;
+}
 
+#analytics_textinfo.reveal {
+    opacity: 1;
+    transform: translateX(0);
+} 
 #analytics_textinfo h1{
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
@@ -96,124 +106,129 @@ body {
   font-style: normal;
 }
 
-/* =================================curtain revel=================================*/
-
-#analytics_textinfo {
-    opacity: 0;
-    transform: translateX(-50px);
-    padding-left: 10px;
-    margin-top: 5px;
-}
-
-#analytics_textinfo.reveal {
-    animation: textReveal 1s ease-out forwards;
-}
-
-@keyframes textReveal {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
 /* =========================counter boxes==================================== */
-
-
 .counter_box {
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
     padding: 4px;
     margin-top: 5px;
-}
-
-
-/* ================= TOP BOX ================= */
-
-#populationcounter {
-    width: 300px;
-    height: 150px;
-
-    background-color: white;
-    border: 1px solid #d1d5db;
-    border-radius: 20px;
 
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-
-/* ================= LOWER 3 BOXES ================= */
-
-.sub_counter {
-    width: 100%;
-    display: flex;
-    flex-direction:row;
-    justify-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
     gap: 30px;
 }
 
+/* ================= SHARED CARD STYLE ================= */
 
-/* Individual boxes */
 
-#medicalcounter,
-#vaccinecounter,
-#checkupcounter {
-    width: 300px;
-    height: 150px;
+.stat-card {
+    width: 330px;
+    height: 200px;
 
     background-color: white;
     border: 1px solid #d1d5db;
+    border-top: 4px solid #102f43; /* accent bar, uses existing number color */
     border-radius: 20px;
 
     display: flex;
-    flex-direction: column;
-
+    justify-content: center;
 
     padding: 20px;
+    gap: 30px;
     box-sizing: border-box;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
 
-/* ================= TEXT ================= */
+.card-icon {
+    font-size: 22px;
+    margin-bottom: 6px;
+    line-height: 1;
+}
 
+/* ================= container ================= */
+
+#populationcounter {
+    border-top-width: 6px; 
+}
+
+#populationcounter,
+#medicalcounter,
+#vaccinecounter,
+#checkupcounter {
+
+    flex-direction: column;  /* vertical */
+    justify-content: right; 
+    align-items: right; 
+
+}
+.fisrtline{
+  display: flex;
+}
 .card-title {
     font-family: "Dosis", sans-serif;
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 2px;
     color: #555;
-
-    margin: 8px;
+    margin: 8px 0 0 0;
 }
-
 
 .card-number {
     font-family: Georgia, serif;
     font-size: 32px;
     font-weight: bold;
     line-height: 1;
-
     color: #102f43;
-
-    margin: 0 20px;
+    margin: 6px 0;
 }
-
 
 .card-subtitle {
     font-family: "Dosis", sans-serif;
     font-size: 13px;
     color: #555;
-
     margin: 0;
+}
+
+/* ================= responsive ================= */
+
+@media (max-width: 1000px) {
+    .sub_counter {
+        grid-template-columns: 1fr;
+    }
+}
+.counter_box {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
+    justify-content: center;
+    gap: 75px;
+}
+/* Sits behind everything, covers the full page */
+.floating-emoji {
+    position: fixed;
+    top: 0;
+    font-size: 8vh;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.floating-emoji.from-left {
+    left: -150px;
+}
+
+.floating-emoji.from-right {
+    right: -150px;
+}
+
+.floating-emoji.show {
+    opacity: 0.15; /* subtle watermark look, adjust as needed */
 }
