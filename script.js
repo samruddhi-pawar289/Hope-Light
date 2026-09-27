@@ -8,6 +8,35 @@ window.addEventListener("load", function () {
     }
 
 });
+
+const rotatingImages = Array.from(document.querySelectorAll(".rotator-image"));
+const imageBackdrop = document.querySelector(".rotator-backdrop");
+
+if (rotatingImages.length && imageBackdrop) {
+    let currentImage = 0;
+    imageBackdrop.style.backgroundImage = `url("${rotatingImages[currentImage].src}")`;
+
+    window.setInterval(() => {
+        rotatingImages[currentImage].classList.remove("active");
+        currentImage = (currentImage + 1) % rotatingImages.length;
+        rotatingImages[currentImage].classList.add("active");
+        imageBackdrop.style.backgroundImage = `url("${rotatingImages[currentImage].src}")`;
+    }, 4000);
+}
+
+const statCards = document.querySelectorAll(".stat-card");
+
+statCards.forEach(card => {
+    card.addEventListener("mouseenter", () => {
+        statCards.forEach(otherCard => {
+            if (otherCard !== card) otherCard.classList.add("blurred");
+        });
+    });
+
+    card.addEventListener("mouseleave", () => {
+        statCards.forEach(otherCard => otherCard.classList.remove("blurred"));
+    });
+});
 const headers = document.querySelectorAll(
     ".analytics_header, .catalog_header, .about_header"
 );
@@ -23,66 +52,3 @@ headers.forEach(header => {
     });
 });
 // =====================================bg responsive emoji===========================================
-// 1. Choose your own emojis per card here
-const cardEmojis = {
-    populationcounter: ["👶", "🧒", "🧸"],
-    medicalcounter: ["📋", "🏥", "📝"],
-    vaccinecounter: ["💉", "🩹", "🧪"],
-    checkupcounter: ["🩺", "❤️", "🔬"]
-};
-
-const EMOJIS_PER_SIDE = 6; // how many emojis fly in from each side
-
-Object.keys(cardEmojis).forEach(cardId => {
-    const card = document.getElementById(cardId);
-    if (!card) return;
-
-    let activeEmojis = [];
-
-    card.addEventListener("mouseenter", () => {
-        const emojiList = cardEmojis[cardId];
-
-        // Spawn from LEFT side
-        for (let i = 0; i < EMOJIS_PER_SIDE; i++) {
-            spawnEmoji(emojiList, "from-left");
-        }
-
-        // Spawn from RIGHT side (at the same time)
-        for (let i = 0; i < EMOJIS_PER_SIDE; i++) {
-            spawnEmoji(emojiList, "from-right");
-        }
-    });
-
-    card.addEventListener("mouseleave", () => {
-        activeEmojis.forEach(el => {
-            el.classList.remove("show");
-            setTimeout(() => el.remove(), 500); // wait for fade-out transition
-        });
-        activeEmojis = [];
-    });
-
-    function spawnEmoji(emojiList, sideClass) {
-        const el = document.createElement("div");
-        el.className = `floating-emoji ${sideClass}`;
-        el.textContent = emojiList[Math.floor(Math.random() * emojiList.length)];
-
-        // Random vertical position across the screen
-        const randomTop = Math.random() * 80 + 5; // 5% to 85% of screen height
-        el.style.top = `${randomTop}vh`;
-
-        // Random landing X position (how far it travels inward)
-        const randomLanding = Math.random() * 30 + 10; // 10% to 40% from that edge
-        document.body.appendChild(el);
-        activeEmojis.push(el);
-
-        // Trigger animation on next frame
-        requestAnimationFrame(() => {
-            el.classList.add("show");
-            if (sideClass === "from-left") {
-                el.style.transform = `translateX(${randomLanding}vw)`;
-            } else {
-                el.style.transform = `translateX(-${randomLanding}vw)`;
-            }
-        });
-    }
-});

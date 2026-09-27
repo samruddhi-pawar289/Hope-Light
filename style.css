@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  height: auto;
+  height: 700vh;
   width: 100%;
   font-family: 'Segoe UI', sans-serif;
   background-color: #f7f5f0;
@@ -22,12 +22,20 @@ body {
 }
 /* Navigation container */
 .nav-container {
+    background: rgba(247, 245, 240, 0.28);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
   display: flex;
   justify-content: space-between;
   align-items: left;
   /* background-color: var(--color-white); */
-  background-color:rgb(255, 255, 255);
+  background-color:transparent;
+  /* box-shadow: #0f684a; */
+  border: 1px solid #0f684a;
   padding: 16px 32px;
+  margin: 10px;
+  border-radius: 20px;
+  position: relative;
 
 }
 
@@ -46,10 +54,11 @@ body {
     display: block;
     padding: 10px 20px;
     border-radius: 8px;
+    position: relative;
 
     text-decoration: none;
-    color: black;
-
+    color: black; 
+    font-weight: 600;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -70,6 +79,7 @@ body {
 /* logo */
 #logo{
   padding: 5px 5px;
+  position: relative;
 }
 /* Navigation bar*/
 .nav-container ul{
@@ -79,31 +89,123 @@ body {
   gap: 2rem;
   justify-content: right;
   cursor: pointer;
+
+}
+
+#analyticspageheader,
+.counter_box {
+    position: relative;
+    z-index: 50;
+}
+
+#analyticspageheader,
+.nav-container,
+.analytics-hero {
+    background-color: transparent;
 }
 
 /* ========================counter box first page========================*/
 #analytics_textinfo {
+    position: relative;
+    width:85dvh ;
+    height: 30dvw;
     opacity: 0;
     transform: translateX(-60px);
     transition: opacity 0.6s ease, transform 0.6s ease;
-    padding-left: 10px;
+    padding-left: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #analytics_textinfo.reveal {
     opacity: 1;
     transform: translateX(0);
 } 
+
+.analytics-hero {
+    z-index: 1;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    min-height: min(52vh, 600px);
+    padding: 20px 5%;
+}
+
+.analytics-hero #analytics_textinfo {
+    width: 50%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding-left: 0;
+}
+
 #analytics_textinfo h1{
+    font-weight: 900;
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-size:8vh;
   font-style: normal;
 }
 #analytics_textinfo h4{
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
+  font-size: 3vh;
   font-weight: 200;
   font-style: normal;
+  font-weight: 900;
+}
+
+/* ==================IMAGE DISPLAY================ */
+.image-rotator {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: min(82vh, 900px);
+    pointer-events: none;
+    overflow: hidden;
+    isolation: isolate;
+    /* Soft fade at edges using a mask */
+    -webkit-mask-image: radial-gradient(ellipse at right, black 1%, transparent 100%);
+    mask-image: radial-gradient(ellipse at right, black 1%, transparent 100%);
+
+}
+
+body {
+    position: relative;
+}
+
+.rotator-backdrop,
+.rotator-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.rotator-backdrop {
+    background-position: center;
+    background-size: cover;
+    filter: blur(14px) brightness(0.78);
+    transform: scale(1.12);
+    transition: background-image 0.8s ease;
+}
+
+.rotator-image {
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.rotator-image.active { opacity: 1; }
+
+@media (max-width: 700px) {
+    .analytics-hero { flex-direction: column; align-items: stretch; }
+    .analytics-hero #analytics_textinfo { width: 100%; }
+    .image-rotator { height: 75vh; }
 }
 
 /* =========================counter boxes==================================== */
@@ -123,14 +225,13 @@ body {
 
 /* ================= SHARED CARD STYLE ================= */
 
-
 .stat-card {
     width: 330px;
     height: 200px;
 
     background-color: white;
     border: 1px solid #d1d5db;
-    border-top: 4px solid #102f43; /* accent bar, uses existing number color */
+    border-top: 4px solid #0f684a; /* accent bar, uses existing number color */
     border-radius: 20px;
 
     display: flex;
@@ -146,6 +247,10 @@ body {
 .stat-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card.blurred {
+    filter: blur(3px);
 }
 
 .card-icon {
@@ -175,7 +280,7 @@ body {
 }
 .card-title {
     font-family: "Dosis", sans-serif;
-    font-size: 11px;
+    font-size: 20px;
     font-weight: 500;
     letter-spacing: 2px;
     color: #555;
@@ -183,17 +288,17 @@ body {
 }
 
 .card-number {
-    font-family: Georgia, serif;
-    font-size: 32px;
-    font-weight: bold;
+   font-family: "DM Sans", sans-serif;
+    font-size: 50px;
+    /* font-weight: bold; */
     line-height: 1;
     color: #102f43;
-    margin: 6px 0;
+
 }
 
 .card-subtitle {
     font-family: "Dosis", sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     color: #555;
     margin: 0;
 }
@@ -209,26 +314,4 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
     justify-content: center;
     gap: 75px;
-}
-/* Sits behind everything, covers the full page */
-.floating-emoji {
-    position: fixed;
-    top: 0;
-    font-size: 8vh;
-    opacity: 0;
-    pointer-events: none;
-    z-index: -1;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.floating-emoji.from-left {
-    left: -150px;
-}
-
-.floating-emoji.from-right {
-    right: -150px;
-}
-
-.floating-emoji.show {
-    opacity: 0.15; /* subtle watermark look, adjust as needed */
 }
