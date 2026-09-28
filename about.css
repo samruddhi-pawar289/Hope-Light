@@ -5,12 +5,15 @@
 }
 
 body {
-    background: #f5f3ee;
     color: #24352f;
-
-    font-family: "DM Sans", sans-serif;
-
-    line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  height: 700vh;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7f5f0;
+  /* background-color:rgb(255, 251, 245); */
+  color: inherit;
 }
 
 a {
@@ -18,113 +21,6 @@ a {
     color: inherit;
 }
 
-
-/* =========================================
-   NAVBAR
-========================================= */
-
-.navbar {
-    height: 98px;
-
-    background: #ffffff;
-
-    border-bottom: 1px solid #dedbd4;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 max(5vw, 40px);
-}
-
-
-/* Brand */
-
-.brand {
-    display: flex;
-    align-items: center;
-
-    gap: 12px;
-}
-
-.brand-icon {
-    width: 40px;
-    height: 40px;
-
-    background: #147463;
-
-    color: #ffffff;
-
-    border-radius: 9px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 24px;
-    font-weight: 500;
-}
-
-.brand-text h2 {
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-size: 18px;
-
-    color: #17251f;
-
-    line-height: 1.1;
-}
-
-.brand-text span {
-    display: block;
-
-    font-family: monospace;
-
-    font-size: 11px;
-
-    letter-spacing: 0.5px;
-
-    color: #6c716c;
-
-    margin-top: 3px;
-}
-
-
-/* Navigation */
-
-.nav-menu {
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-}
-
-.nav-menu a {
-    padding: 12px 18px;
-
-    border-radius: 10px;
-
-    font-size: 15px;
-
-    color: #746f68;
-
-    transition: all 0.25s ease;
-}
-
-.nav-menu a:hover {
-    background: #f0eee9;
-
-    color: #126e5e;
-}
-
-.nav-menu a.active {
-    background: #147463;
-
-    color: #ffffff;
-
-    box-shadow: 0 3px 8px rgba(20, 116, 99, 0.18);
-}
 
 
 /* =========================================
