@@ -3,7 +3,7 @@
   const app = document.getElementById('catalog-app');
   const folderInfo = {
     medical: { title:'Medical Records', description:'Health profiles, growth and care notes', icon:'✚' },
-    vaccination: { title:'Vaccination Records', description:'Immunizations and upcoming doses', icon:'✚' },
+    vaccination: { title:'Vaccination Records', description:'Immunizations and upcoming doses', icon: '✚'},
     checkups: { title:'Previous Checkups', description:'Past visits, vitals and doctor notes', icon:'▤' }
   };
   const esc = value => String(value ?? '—').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
