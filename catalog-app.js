@@ -1,6 +1,7 @@
 (() => {
-  const children = window.childrenRecords || [];
   const app = document.getElementById('catalog-app');
+  const API_BASE = window.HOPE_LIGHT_API || 'http://127.0.0.1:5000';
+  let children = [];
   const folderInfo = {
     medical: { title:'Medical Records', description:'Health profiles, growth and care notes', icon:'✚' },
     vaccination: { title:'Vaccination Records', description:'Immunizations and upcoming doses', icon: '✚'},
@@ -44,10 +45,13 @@
       headers=['NAME','AGE','LAST CHECKUP','TYPE','DOCTOR','NEXT CHECKUP','STATUS'];
       rows=children.map(c=>{const latest=sortedCheckups(c)[0];const next=c.checkups.map(x=>x.followUp.match(/(\w{3}) (\d{4})/)).find(Boolean);const status=c.status;return[c.name,`${c.age} yrs`,date(latest?.date),latest?.type||'—',latest?.doctor||'—',next?`${next[1]} ${next[2]}`:'—',pill(status,status==='Under Treatment'?'orange':status==='Monitoring'?'blue':status==='Critical'?'red':'')];});
     }
-    return `${crumbs(folder)}<section class="catalog-panel"><div class="panel-heading"><div><span class="mono-label">CHILD RECORDS</span><h2>${esc(folderInfo[folder].title)}</h2><p>${esc(folderInfo[folder].description)}</p></div><span class="records-count">${children.length} children</span></div>${children.length?`<div class="table-wrap"><table class="catalog-table"><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${children.map((c,i)=>`<tr data-href="/folder/${folder}/${c.id}">${rows[i].map((v,j)=>`<td class="${j===0?'child-name':''}">${v}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:`<div class="empty-state">No records are available in this folder yet.</div>`}</section>`;
+    const searchHtml = `<div class="search-container" style="margin-bottom: 20px;"><input type="text" id="searchInput" placeholder="Search by name or ID..." style="width: 100%; padding: 12px; border-radius: 20px; border: 1px solid #ddd9d1; font-family: 'DM Sans'; font-size: 16px;"></div>`;
+    return `${crumbs(folder)}<section class="catalog-panel"><div class="panel-heading"><div><span class="mono-label">CHILD RECORDS</span><h2>${esc(folderInfo[folder].title)}</h2><p>${esc(folderInfo[folder].description)}</p></div><span class="records-count">${children.length} children</span></div>${searchHtml}${children.length?`<div class="table-wrap"><table class="catalog-table"><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${children.map((c,i)=>`<tr data-href="/folder/${folder}/${c.id}">${rows[i].map((v,j)=>`<td class="${j===0?'child-name':''}">${v}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:`<div class="empty-state">No records are available in this folder yet.</div>`}</section>`;
   }
   function profile(child) {
-    return `<aside class="profile-card"><div class="profile-avatar">${initials(child.name)}</div><div><h2>${esc(child.name)}</h2><div class="profile-status">${pill(child.status,child.status==='Under Treatment'?'orange':child.status==='Monitoring'?'blue':child.status==='Critical'?'red':'')}</div></div><dl class="profile-meta"><div><dt>DATE OF BIRTH</dt><dd>${date(child.dob)}</dd></div><div><dt>AGE</dt><dd>${child.age} years</dd></div><div><dt>BLOOD TYPE</dt><dd>${esc(child.bloodType)}</dd></div><div><dt>WARD</dt><dd>${esc(child.ward)}</dd></div><div><dt>ADMITTED</dt><dd>${date(child.admitted)}</dd></div></dl></aside>`;
+    const editBtn = `<button id="editBtn" style="width: 100%; padding: 10px; margin-top: 15px; border-radius: 20px; background-color: #0f684a; color: white; border: none; font-family: 'DM Sans'; cursor: pointer;">Edit Profile</button>`;
+    const modalHtml = `<dialog id="editModal" style="border: none; border-radius: 20px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); width: 400px; margin: auto; z-index: 1000;"><h2 style="font-family: 'Playfair Display'; margin-bottom: 20px;">Edit Profile</h2><form id="editForm"><div style="margin-bottom: 15px;"><label style="display:block; font-size: 12px; color: #102f43;">Name</label><input type="text" name="name" value="${esc(child.name)}" required style="width:100%; padding: 8px; border-radius: 8px; border: 1px solid #ccc;"></div><div style="margin-bottom: 15px;"><label style="display:block; font-size: 12px; color: #102f43;">DOB (YYYY-MM-DD)</label><input type="text" name="dob" value="${child.dob ? esc(child.dob.split('T')[0]) : ''}" required style="width:100%; padding: 8px; border-radius: 8px; border: 1px solid #ccc;"></div><div style="margin-bottom: 15px;"><label style="display:block; font-size: 12px; color: #102f43;">Blood Type</label><input type="text" name="bloodType" value="${esc(child.bloodType)}" style="width:100%; padding: 8px; border-radius: 8px; border: 1px solid #ccc;"></div><div style="margin-bottom: 15px;"><label style="display:block; font-size: 12px; color: #102f43;">Ward</label><input type="text" name="ward" value="${esc(child.ward)}" style="width:100%; padding: 8px; border-radius: 8px; border: 1px solid #ccc;"></div><div style="margin-bottom: 15px;"><label style="display:block; font-size: 12px; color: #102f43;">Status</label><input type="text" name="status" value="${esc(child.status)}" required style="width:100%; padding: 8px; border-radius: 8px; border: 1px solid #ccc;"></div><div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;"><button type="button" id="closeModal" style="padding: 8px 16px; border-radius: 20px; border: 1px solid #ccc; background: white; cursor: pointer;">Cancel</button><button type="submit" style="padding: 8px 16px; border-radius: 20px; border: none; background: #0f684a; color: white; cursor: pointer;">Save</button></div></form></dialog>`;
+    return `<aside class="profile-card"><div class="profile-avatar">${initials(child.name)}</div><div><h2>${esc(child.name)}</h2><div class="profile-status">${pill(child.status,child.status==='Under Treatment'?'orange':child.status==='Monitoring'?'blue':child.status==='Critical'?'red':'')}</div></div><dl class="profile-meta"><div><dt>DATE OF BIRTH</dt><dd>${date(child.dob)}</dd></div><div><dt>AGE</dt><dd>${child.age} years</dd></div><div><dt>BLOOD TYPE</dt><dd>${esc(child.bloodType)}</dd></div><div><dt>WARD</dt><dd>${esc(child.ward)}</dd></div><div><dt>ADMITTED</dt><dd>${date(child.admitted)}</dd></div></dl>${editBtn}${modalHtml}</aside>`;
   }
   function vaccinationPanel(child) {
     const done=child.vaccinations.filter(v=>v.status==='Given').length;
@@ -79,6 +83,7 @@
     const panel=folder==='vaccination'?vaccinationPanel(child):folder==='checkups'?checkupPanel(child):medicalPanel(child);
     return `${crumbs(folder,child)}<div class="detail-layout">${profile(child)}${panel}</div>`;
   }
+  let searchTimeout = null;
   function render() {
     const r=route();
     app.innerHTML=r.page==='folders'?foldersPage():r.page==='table'?tablePage(r.folder):detailPage(r.folder,r.childId);
@@ -89,9 +94,48 @@
       if(panel.querySelector('[data-vaccine-status]')) panel.querySelectorAll('[data-vaccine-status]').forEach(row=>row.hidden=button.dataset.filter!=='All'&&row.dataset.vaccineStatus!==button.dataset.filter);
       if(panel.querySelector('.timeline-item')) panel.querySelectorAll('.timeline-item').forEach(item=>item.hidden=button.dataset.filter!=='All'&&item.dataset.year!==button.dataset.filter);
     }));
+    
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(async () => {
+                const response = await fetch(`${API_BASE}/api/children?q=${e.target.value}`);
+                children = await response.json();
+                render();
+                const newInp = document.getElementById('searchInput');
+                if (newInp) { newInp.value = e.target.value; newInp.focus(); }
+            }, 300);
+        });
+    }
+
+    const editBtn = document.getElementById('editBtn');
+    const editModal = document.getElementById('editModal');
+    if (editBtn && editModal) {
+        editBtn.addEventListener('click', () => editModal.showModal());
+        document.getElementById('closeModal').addEventListener('click', () => editModal.close());
+        document.getElementById('editForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = Object.fromEntries(new FormData(e.target).entries());
+            await fetch(`${API_BASE}/api/children/${r.childId}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+            editModal.close();
+            loadChildren();
+        });
+    }
   }
   function navigate(path) { history.pushState({},'',path);render();window.scrollTo(0,0); }
   document.addEventListener('click',event=>{const link=event.target.closest('a[href^="/folder"],a[href="/"]');if(!link)return;event.preventDefault();navigate(link.getAttribute('href'));});
   window.addEventListener('popstate',render);
-  render();
+  async function loadChildren() {
+    app.innerHTML = '<div class="empty-state">Loading health records…</div>';
+    try {
+      const response = await fetch(`${API_BASE}/api/children`);
+      if (!response.ok) throw new Error('Could not load health records.');
+      children = await response.json();
+      render();
+    } catch (error) {
+      app.innerHTML = `<div class="empty-state">${esc(error.message)} Start the Flask API and MySQL, then refresh.</div>`;
+    }
+  }
+  loadChildren();
 })();

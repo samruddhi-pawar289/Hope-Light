@@ -1,0 +1,772 @@
+[
+  {
+    "id": "amara-osei",
+    "name": "Amara Osei",
+    "dob": "2013-04-18",
+    "age": 13,
+    "bloodType": "O+",
+    "ward": "Sunrise Ward",
+    "admitted": "2021-06-12",
+    "status": "Healthy",
+    "weightKg": 42.8,
+    "heightCm": 151,
+    "history": [
+      {
+        "date": "2026-09-14",
+        "weight": 42.8,
+        "height": 151,
+        "note": "Routine checkup — healthy growth; continue balanced nutrition."
+      },
+      {
+        "date": "2026-06-08",
+        "weight": 41.9,
+        "height": 150,
+        "note": "URTI; amoxicillin prescribed for 5 days. Symptoms resolved."
+      },
+      {
+        "date": "2026-01-20",
+        "weight": 40.7,
+        "height": 148,
+        "note": "Annual physical — exam within normal limits."
+      }
+    ],
+    "vaccinations": [
+      {
+        "vaccine": "BCG",
+        "dose": 1,
+        "dateGiven": "2013-04-19",
+        "dueDate": "2013-04-19",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Hepatitis B",
+        "dose": 1,
+        "dateGiven": "2013-04-19",
+        "dueDate": "2013-05-19",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Hepatitis B",
+        "dose": 2,
+        "dateGiven": "2013-05-20",
+        "dueDate": "2013-10-19",
+        "status": "Given"
+      },
+      {
+        "vaccine": "DTP",
+        "dose": 1,
+        "dateGiven": "2013-06-18",
+        "dueDate": "2013-07-18",
+        "status": "Given"
+      },
+      {
+        "vaccine": "DTP",
+        "dose": 2,
+        "dateGiven": "2013-07-19",
+        "dueDate": "2013-12-18",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Polio",
+        "dose": 1,
+        "dateGiven": "2013-06-18",
+        "dueDate": "2013-07-18",
+        "status": "Given"
+      },
+      {
+        "vaccine": "MMR",
+        "dose": 1,
+        "dateGiven": "2014-04-20",
+        "dueDate": "2014-10-20",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Varicella",
+        "dose": 1,
+        "dateGiven": "2014-05-02",
+        "dueDate": "2014-05-02",
+        "status": "Given"
+      },
+      {
+        "vaccine": "HPV",
+        "dose": 1,
+        "dateGiven": "2025-04-18",
+        "dueDate": "2025-10-18",
+        "status": "Given"
+      },
+      {
+        "vaccine": "HPV",
+        "dose": 2,
+        "dateGiven": "2025-10-18",
+        "dueDate": null,
+        "status": "Due"
+      },
+      {
+        "vaccine": "Tdap booster",
+        "dose": 1,
+        "dateGiven": "2023-04-18",
+        "dueDate": "2028-04-18",
+        "status": "Given"
+      }
+    ],
+    "checkups": [
+      {
+        "date": "2026-09-14",
+        "type": "Routine",
+        "doctor": "Dr. Amelia Osei-Bonsu",
+        "weightKg": 42.8,
+        "heightCm": 151,
+        "bp": "108/68",
+        "temperatureC": 36.7,
+        "pulse": 78,
+        "findings": "Healthy growth; no concerns reported.",
+        "followUp": "Routine review in 12 months."
+      },
+      {
+        "date": "2026-06-08",
+        "type": "Sick Visit",
+        "doctor": "Dr. Kwame Asiedu",
+        "weightKg": 41.9,
+        "heightCm": 150,
+        "bp": "106/66",
+        "temperatureC": 37.8,
+        "pulse": 92,
+        "findings": "URTI symptoms; completed 5-day amoxicillin course with full recovery.",
+        "followUp": "Return if symptoms recur."
+      },
+      {
+        "date": "2026-01-20",
+        "type": "Annual Physical",
+        "doctor": "Dr. Amelia Osei-Bonsu",
+        "weightKg": 40.7,
+        "heightCm": 148,
+        "bp": "104/64",
+        "temperatureC": 36.6,
+        "pulse": 76,
+        "findings": "Annual exam within normal limits.",
+        "followUp": "Next annual physical in Jan 2027."
+      }
+    ]
+  },
+  {
+    "id": "lena-dubois",
+    "name": "Lena Dubois",
+    "dob": "2016-11-02",
+    "age": 9,
+    "bloodType": "A+",
+    "ward": "Meadow Ward",
+    "admitted": "2020-03-04",
+    "status": "Monitoring",
+    "weightKg": 30.2,
+    "heightCm": 132,
+    "history": [
+      {
+        "date": "2026-08-22",
+        "weight": 30.2,
+        "height": 132,
+        "note": "Routine visit — growth tracking continues."
+      },
+      {
+        "date": "2026-02-10",
+        "weight": 29.4,
+        "height": 130,
+        "note": "Annual physical — mild seasonal allergies discussed."
+      }
+    ],
+    "vaccinations": [
+      {
+        "vaccine": "BCG",
+        "dose": 1,
+        "dateGiven": "2016-11-03",
+        "dueDate": "2016-11-03",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Hepatitis B",
+        "dose": 1,
+        "dateGiven": "2016-11-03",
+        "dueDate": "2016-12-03",
+        "status": "Given"
+      },
+      {
+        "vaccine": "DTP",
+        "dose": 1,
+        "dateGiven": "2017-01-02",
+        "dueDate": "2017-02-02",
+        "status": "Given"
+      },
+      {
+        "vaccine": "DTP",
+        "dose": 2,
+        "dateGiven": "2017-02-03",
+        "dueDate": "2017-07-02",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Polio",
+        "dose": 1,
+        "dateGiven": "2017-01-02",
+        "dueDate": "2017-02-02",
+        "status": "Given"
+      },
+      {
+        "vaccine": "MMR",
+        "dose": 1,
+        "dateGiven": "2017-11-03",
+        "dueDate": "2018-05-03",
+        "status": "Given"
+      },
+      {
+        "vaccine": "MMR",
+        "dose": 2,
+        "dateGiven": "2018-05-04",
+        "dueDate": "2027-11-02",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Varicella",
+        "dose": 1,
+        "dateGiven": "2017-12-02",
+        "dueDate": "2017-12-02",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Hepatitis A",
+        "dose": 2,
+        "dateGiven": "2018-06-02",
+        "dueDate": "2026-10-15",
+        "status": "Due"
+      }
+    ],
+    "checkups": [
+      {
+        "date": "2026-08-22",
+        "type": "Routine",
+        "doctor": "Dr. Kwame Asiedu",
+        "weightKg": 30.2,
+        "heightCm": 132,
+        "bp": "102/64",
+        "temperatureC": 36.5,
+        "pulse": 82,
+        "findings": "Growth consistent; seasonal allergy symptoms are mild.",
+        "followUp": "Review in 6 months."
+      },
+      {
+        "date": "2026-02-10",
+        "type": "Annual Physical",
+        "doctor": "Dr. Amelia Osei-Bonsu",
+        "weightKg": 29.4,
+        "heightCm": 130,
+        "bp": "100/62",
+        "temperatureC": 36.6,
+        "pulse": 80,
+        "findings": "Exam normal; allergy management reviewed.",
+        "followUp": "Annual review in Feb 2027."
+      },
+      {
+        "date": "2025-06-12",
+        "type": "Follow-up",
+        "doctor": "Nurse Grace Amoah",
+        "weightKg": 27.8,
+        "heightCm": 127,
+        "bp": "98/60",
+        "temperatureC": 36.5,
+        "pulse": 84,
+        "findings": "Allergy symptoms improved with routine care.",
+        "followUp": "As needed."
+      }
+    ]
+  },
+  {
+    "id": "kofi-asante",
+    "name": "Kofi Asante",
+    "dob": "2011-08-25",
+    "age": 15,
+    "bloodType": "B+",
+    "ward": "Sunrise Ward",
+    "admitted": "2019-09-15",
+    "status": "Under Treatment",
+    "weightKg": 55.1,
+    "heightCm": 166,
+    "history": [
+      {
+        "date": "2026-09-03",
+        "weight": 55.1,
+        "height": 166,
+        "note": "Follow-up — eczema improving with topical treatment."
+      },
+      {
+        "date": "2026-03-12",
+        "weight": 53.7,
+        "height": 164,
+        "note": "Annual physical — skin care plan updated."
+      }
+    ],
+    "vaccinations": [
+      {
+        "vaccine": "BCG",
+        "dose": 1,
+        "dateGiven": "2011-08-26",
+        "dueDate": "2011-08-26",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Hepatitis B",
+        "dose": 3,
+        "dateGiven": "2012-02-25",
+        "dueDate": "2012-02-25",
+        "status": "Given"
+      },
+      {
+        "vaccine": "DTP",
+        "dose": 3,
+        "dateGiven": "2012-02-25",
+        "dueDate": "2016-08-25",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Polio",
+        "dose": 3,
+        "dateGiven": "2012-02-25",
+        "dueDate": "2016-08-25",
+        "status": "Given"
+      },
+      {
+        "vaccine": "MMR",
+        "dose": 2,
+        "dateGiven": "2013-08-26",
+        "dueDate": "2026-08-25",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Tdap",
+        "dose": 1,
+        "dateGiven": "2022-08-25",
+        "dueDate": "2027-08-25",
+        "status": "Given"
+      },
+      {
+        "vaccine": "HPV",
+        "dose": 1,
+        "dateGiven": "2024-08-25",
+        "dueDate": "2025-02-25",
+        "status": "Given"
+      },
+      {
+        "vaccine": "HPV",
+        "dose": 2,
+        "dateGiven": "2025-02-25",
+        "dueDate": null,
+        "status": "Overdue"
+      },
+      {
+        "vaccine": "Typhoid",
+        "dose": 1,
+        "dateGiven": "2024-09-01",
+        "dueDate": "2026-09-01",
+        "status": "Overdue"
+      }
+    ],
+    "checkups": [
+      {
+        "date": "2026-09-03",
+        "type": "Follow-up",
+        "doctor": "Dr. Kwame Asiedu",
+        "weightKg": 55.1,
+        "heightCm": 166,
+        "bp": "112/70",
+        "temperatureC": 36.7,
+        "pulse": 80,
+        "findings": "Eczema improving; no signs of infection.",
+        "followUp": "Continue topical plan; review in 3 months."
+      },
+      {
+        "date": "2026-03-12",
+        "type": "Annual Physical",
+        "doctor": "Dr. Amelia Osei-Bonsu",
+        "weightKg": 53.7,
+        "heightCm": 164,
+        "bp": "110/68",
+        "temperatureC": 36.6,
+        "pulse": 78,
+        "findings": "Healthy exam; skin care plan refreshed.",
+        "followUp": "Annual review in Mar 2027."
+      }
+    ]
+  },
+  {
+    "id": "aiko-tanaka",
+    "name": "Aiko Tanaka",
+    "dob": "2018-02-14",
+    "age": 8,
+    "bloodType": "AB+",
+    "ward": "Meadow Ward",
+    "admitted": "2022-01-10",
+    "status": "Healthy",
+    "weightKg": 26.4,
+    "heightCm": 126,
+    "history": [
+      {
+        "date": "2026-07-18",
+        "weight": 26.4,
+        "height": 126,
+        "note": "Routine checkup — healthy development."
+      },
+      {
+        "date": "2026-01-16",
+        "weight": 25.5,
+        "height": 124,
+        "note": "Annual physical — no concerns."
+      }
+    ],
+    "vaccinations": [
+      {
+        "vaccine": "BCG",
+        "dose": 1,
+        "dateGiven": "2018-02-15",
+        "dueDate": "2018-02-15",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Hepatitis B",
+        "dose": 3,
+        "dateGiven": "2018-08-14",
+        "dueDate": "2018-08-14",
+        "status": "Given"
+      },
+      {
+        "vaccine": "DTP",
+        "dose": 3,
+        "dateGiven": "2018-08-14",
+        "dueDate": "2022-02-14",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Polio",
+        "dose": 3,
+        "dateGiven": "2018-08-14",
+        "dueDate": "2022-02-14",
+        "status": "Given"
+      },
+      {
+        "vaccine": "MMR",
+        "dose": 1,
+        "dateGiven": "2019-02-15",
+        "dueDate": "2019-08-15",
+        "status": "Given"
+      },
+      {
+        "vaccine": "MMR",
+        "dose": 2,
+        "dateGiven": "2019-08-15",
+        "dueDate": "2028-02-14",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Varicella",
+        "dose": 1,
+        "dateGiven": "2019-03-14",
+        "dueDate": "2019-03-14",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Typhoid",
+        "dose": 1,
+        "dateGiven": "2024-03-01",
+        "dueDate": "2026-10-10",
+        "status": "Due"
+      },
+      {
+        "vaccine": "Hepatitis A",
+        "dose": 2,
+        "dateGiven": "2020-02-15",
+        "dueDate": "2026-02-15",
+        "status": "Overdue"
+      }
+    ],
+    "checkups": [
+      {
+        "date": "2026-07-18",
+        "type": "Routine",
+        "doctor": "Dr. Amelia Osei-Bonsu",
+        "weightKg": 26.4,
+        "heightCm": 126,
+        "bp": "100/62",
+        "temperatureC": 36.6,
+        "pulse": 84,
+        "findings": "Healthy development; no concerns noted.",
+        "followUp": "Review in 12 months."
+      },
+      {
+        "date": "2026-01-16",
+        "type": "Annual Physical",
+        "doctor": "Dr. Kwame Asiedu",
+        "weightKg": 25.5,
+        "heightCm": 124,
+        "bp": "98/60",
+        "temperatureC": 36.5,
+        "pulse": 82,
+        "findings": "Annual exam normal.",
+        "followUp": "Annual review in Jan 2027."
+      }
+    ]
+  },
+  {
+    "id": "ibrahim-diallo",
+    "name": "Ibrahim Diallo",
+    "dob": "2014-06-30",
+    "age": 12,
+    "bloodType": "O-",
+    "ward": "River Ward",
+    "admitted": "2020-11-18",
+    "status": "Critical",
+    "weightKg": 37.6,
+    "heightCm": 145,
+    "history": [
+      {
+        "date": "2026-09-21",
+        "weight": 37.6,
+        "height": 145,
+        "note": "Follow-up — asthma symptoms controlled; continue prescribed inhaler."
+      },
+      {
+        "date": "2026-05-14",
+        "weight": 36.9,
+        "height": 144,
+        "note": "Sick visit — wheezing episode managed; care plan reviewed."
+      }
+    ],
+    "vaccinations": [
+      {
+        "vaccine": "BCG",
+        "dose": 1,
+        "dateGiven": "2014-07-01",
+        "dueDate": "2014-07-01",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Hepatitis B",
+        "dose": 3,
+        "dateGiven": "2014-12-30",
+        "dueDate": "2014-12-30",
+        "status": "Given"
+      },
+      {
+        "vaccine": "DTP",
+        "dose": 3,
+        "dateGiven": "2014-12-30",
+        "dueDate": "2018-06-30",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Polio",
+        "dose": 3,
+        "dateGiven": "2014-12-30",
+        "dueDate": "2018-06-30",
+        "status": "Given"
+      },
+      {
+        "vaccine": "MMR",
+        "dose": 2,
+        "dateGiven": "2016-07-01",
+        "dueDate": "2026-06-30",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Varicella",
+        "dose": 1,
+        "dateGiven": "2015-07-01",
+        "dueDate": "2015-07-01",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Typhoid",
+        "dose": 1,
+        "dateGiven": "2024-07-01",
+        "dueDate": "2026-07-01",
+        "status": "Overdue"
+      },
+      {
+        "vaccine": "Tdap booster",
+        "dose": 1,
+        "dateGiven": "2022-06-30",
+        "dueDate": "2027-06-30",
+        "status": "Given"
+      },
+      {
+        "vaccine": "HPV",
+        "dose": 1,
+        "dateGiven": "2026-06-30",
+        "dueDate": "2026-12-30",
+        "status": "Given"
+      }
+    ],
+    "checkups": [
+      {
+        "date": "2026-09-21",
+        "type": "Follow-up",
+        "doctor": "Dr. Kwame Asiedu",
+        "weightKg": 37.6,
+        "heightCm": 145,
+        "bp": "106/66",
+        "temperatureC": 36.8,
+        "pulse": 88,
+        "findings": "Asthma controlled; no acute symptoms today.",
+        "followUp": "Continue inhaler; review in 3 months."
+      },
+      {
+        "date": "2026-05-14",
+        "type": "Sick Visit",
+        "doctor": "Dr. Amelia Osei-Bonsu",
+        "weightKg": 36.9,
+        "heightCm": 144,
+        "bp": "108/68",
+        "temperatureC": 37.1,
+        "pulse": 96,
+        "findings": "Wheezing episode resolved; asthma action plan reviewed.",
+        "followUp": "Follow-up in 6 weeks."
+      },
+      {
+        "date": "2025-11-20",
+        "type": "Routine",
+        "doctor": "Nurse Grace Amoah",
+        "weightKg": 35.2,
+        "heightCm": 142,
+        "bp": "104/64",
+        "temperatureC": 36.6,
+        "pulse": 82,
+        "findings": "Stable between episodes.",
+        "followUp": "Routine review in 6 months."
+      }
+    ]
+  },
+  {
+    "id": "mei-lin-chen",
+    "name": "Mei Lin Chen",
+    "dob": "2019-09-07",
+    "age": 7,
+    "bloodType": "A-",
+    "ward": "River Ward",
+    "admitted": "2023-02-05",
+    "status": "Healthy",
+    "weightKg": 23.1,
+    "heightCm": 119,
+    "history": [
+      {
+        "date": "2026-09-10",
+        "weight": 23.1,
+        "height": 119,
+        "note": "Routine checkup — steady growth."
+      },
+      {
+        "date": "2026-03-05",
+        "weight": 22.3,
+        "height": 117,
+        "note": "Annual physical — all findings within expected range."
+      }
+    ],
+    "vaccinations": [
+      {
+        "vaccine": "BCG",
+        "dose": 1,
+        "dateGiven": "2019-09-08",
+        "dueDate": "2019-09-08",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Hepatitis B",
+        "dose": 3,
+        "dateGiven": "2020-03-07",
+        "dueDate": "2020-03-07",
+        "status": "Given"
+      },
+      {
+        "vaccine": "DTP",
+        "dose": 3,
+        "dateGiven": "2020-03-07",
+        "dueDate": "2024-09-07",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Polio",
+        "dose": 3,
+        "dateGiven": "2020-03-07",
+        "dueDate": "2024-09-07",
+        "status": "Given"
+      },
+      {
+        "vaccine": "MMR",
+        "dose": 1,
+        "dateGiven": "2020-09-08",
+        "dueDate": "2021-03-08",
+        "status": "Given"
+      },
+      {
+        "vaccine": "MMR",
+        "dose": 2,
+        "dateGiven": "2021-03-08",
+        "dueDate": "2029-09-07",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Varicella",
+        "dose": 1,
+        "dateGiven": "2020-10-07",
+        "dueDate": "2020-10-07",
+        "status": "Given"
+      },
+      {
+        "vaccine": "Typhoid",
+        "dose": 1,
+        "dateGiven": "2024-10-07",
+        "dueDate": "2026-10-07",
+        "status": "Due"
+      },
+      {
+        "vaccine": "Hepatitis A",
+        "dose": 2,
+        "dateGiven": "2021-09-08",
+        "dueDate": "2026-09-08",
+        "status": "Overdue"
+      }
+    ],
+    "checkups": [
+      {
+        "date": "2026-09-10",
+        "type": "Routine",
+        "doctor": "Dr. Amelia Osei-Bonsu",
+        "weightKg": 23.1,
+        "heightCm": 119,
+        "bp": "98/60",
+        "temperatureC": 36.5,
+        "pulse": 86,
+        "findings": "Steady growth; no concerns reported.",
+        "followUp": "Review in 12 months."
+      },
+      {
+        "date": "2026-03-05",
+        "type": "Annual Physical",
+        "doctor": "Dr. Kwame Asiedu",
+        "weightKg": 22.3,
+        "heightCm": 117,
+        "bp": "96/60",
+        "temperatureC": 36.6,
+        "pulse": 84,
+        "findings": "All findings within expected range.",
+        "followUp": "Annual review in Mar 2027."
+      },
+      {
+        "date": "2025-06-19",
+        "type": "Follow-up",
+        "doctor": "Nurse Grace Amoah",
+        "weightKg": 20.8,
+        "heightCm": 114,
+        "bp": "94/58",
+        "temperatureC": 36.5,
+        "pulse": 88,
+        "findings": "Previous cough resolved.",
+        "followUp": "As needed."
+      }
+    ]
+  }
+]
