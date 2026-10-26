@@ -51,3 +51,14 @@ CREATE TABLE IF NOT EXISTS checkups (
   FOREIGN KEY (child_id) REFERENCES children(id) ON DELETE CASCADE,
   INDEX idx_checkups_child_date (child_id, visited_on)
 );
+
+CREATE TABLE IF NOT EXISTS medical_history_data (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  child_id VARCHAR(64) NOT NULL,
+  date_added DATE NOT NULL,
+  type VARCHAR(40) NOT NULL,
+  description TEXT,
+  file_url VARCHAR(255),
+  FOREIGN KEY (child_id) REFERENCES children(id) ON DELETE CASCADE,
+  INDEX idx_medical_child_date (child_id, date_added)
+);
