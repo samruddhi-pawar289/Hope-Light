@@ -52,9 +52,10 @@ body {
 /* Link */
 .nav-container a {
     display: block;
-    padding: 10px 20px;
+    padding: 8px 14px;
     border-radius: 8px;
     position: relative;
+    text-align: center;
 
     text-decoration: none;
     color: black; 
@@ -69,7 +70,7 @@ body {
 
 /* Current page */
 .nav-container li.active {
-    background-color: #0f684a;
+    background-color: #1d3b33;
 }
 
 /* Text of current page */
@@ -753,6 +754,17 @@ footer {
     background: #f5f3ee;
 }
 
+.site-footer {
+    display: block;
+    padding: 18px 20px;
+    border-top: 1px solid #ddd9d1;
+    background: #f5f3ee;
+    color: #555b56;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
+}
+
 .footer-brand {
     display: flex;
 
@@ -996,4 +1008,31 @@ footer {
 @media(max-width:850px){.detail-layout{grid-template-columns:1fr}.profile-card{display:grid;grid-template-columns:64px 1fr;column-gap:14px}.profile-avatar{grid-row:span 2}.profile-status{align-self:start}.profile-meta{grid-column:1/-1;margin-top:20px}}
 
 /* Phone layout: use one-column cards and fit navigation to the screen */
-@media(max-width:650px){.catalog-shell{width:94%;margin-top:16px}.folder-grid{grid-template-columns:1fr}.folder-card{min-height:190px}.catalog-panel{padding:17px}.panel-heading{flex-direction:column}.summary-strip{grid-template-columns:1fr}.vitals-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-crumbs{font-size:12px}.catalog-page .nav-container{padding:10px 14px;margin:7px}.catalog-page .logo{display:none}.catalog-page .nav-container ul{gap:0;justify-content:space-between;width:100%}.catalog-page .nav-container a{padding:9px 11px;font-size:13px}}
+@media(max-width:650px){.catalog-shell{width:94%;margin-top:16px}.folder-grid{grid-template-columns:1fr}.folder-card{min-height:190px}.catalog-panel{padding:17px}.panel-heading{flex-direction:column}.summary-strip{grid-template-columns:1fr}.vitals-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-crumbs{font-size:12px}}
+
+/* Keep the shared navigation dimensions consistent on every page. */
+@media(max-width:650px){
+  .nav-container{padding:10px 14px;margin:7px}
+  .nav-container ul{gap:clamp(8px,4vw,24px);justify-content:flex-end;width:auto}
+  .nav-container a{padding:8px 11px;font-size:13px}
+}
+
+/* Shared navigation appearance across Analytics, Catalog, and About pages. */
+.nav-container{
+  justify-content:space-between;
+  border:1px solid #0f684a;
+  background:transparent;
+  padding:16px 32px;
+  border-radius:22px;
+}
+.nav-container ul{justify-content:flex-end;align-items:center;gap:42px;width:auto}
+.nav-container li.active{background-color:#147463}
+.nav-container li:hover{background-color:transparent}
+.nav-container li.active:hover{background-color:#147463}
+.nav-container a{padding:6px 14px;text-align:center}
+
+@media(max-width:650px){
+  .nav-container{padding:10px 14px}
+  .nav-container ul{gap:clamp(8px,4vw,24px);width:auto}
+  .nav-container a{padding:6px 11px;font-size:13px}
+}
