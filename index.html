@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanmati Bal Niketan | Health Analytics & Child Catalog</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Text:ital@0;1&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fjalla+One&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lilita+One&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -70,6 +74,190 @@
             <!-- it will display the number of previous checkups registered in catalog -->
         </div>
 </div>
+
+        <!-- ==============================================================================
+             ANALYTICS DASHBOARD: FILTERS & 4 FLASH CARDS
+             Placed below existing elements without modifying or moving them
+        ============================================================================== -->
+        <section class="dashboard-section" id="analyticsDashboard" aria-label="Health Analytics Dashboard">
+            <div class="dashboard-header">
+                <div class="dashboard-eyebrow">RESIDENCE HEALTH METRICS</div>
+                <div class="dashboard-title-row">
+                    <div>
+                        <h2 class="dashboard-title">Child Health Analytics</h2>
+                        <p class="dashboard-subtitle">Real-time health trends and clinical reporting across all wards</p>
+                    </div>
+                    <div class="dashboard-live-indicator">
+                        <span class="live-dot" aria-hidden="true"></span>
+                        <span>LIVE DATABASE SYNC</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The 4 Graph Cards Grid (Direct live database data) -->
+            <div class="dashboard-cards-grid">
+                <!-- CARD 1: Total Children + Age Distribution -->
+                <article class="dashboard-flash-card" id="cardAgeDist" aria-labelledby="card1Title">
+                    <div class="card-split-layout">
+                        <div class="card-chart-area">
+                            <div class="chart-canvas-container">
+                                <canvas id="chartAgeDist" role="img" aria-label="Vertical column chart of children age distribution"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-desc-panel">
+                            <span class="card-panel-eyebrow">DEMOGRAPHICS</span>
+                            <h3 class="card-panel-title" id="card1Title">Total Children & Age Distribution</h3>
+                            <div class="card-headline-group">
+                                <span class="card-headline-number">0</span>
+                                <span class="card-headline-context">children in residence</span>
+                            </div>
+                            <p class="card-insight-text">Loading insights...</p>
+                            <div class="card-mini-legend" aria-label="Age breakdown legend"></div>
+                        </div>
+                    </div>
+
+                    <!-- Overlays -->
+                    <div class="card-state-overlay overlay-loading">
+                        <div class="spinner-ring" aria-hidden="true"></div>
+                        <p class="state-desc">Loading age distribution...</p>
+                    </div>
+                    <div class="card-state-overlay overlay-empty hidden">
+                        <h4 class="state-title">No data yet</h4>
+                        <p class="state-desc">No records found in database.</p>
+                        <button type="button" class="state-btn btn-empty-reset">Refresh Data</button>
+                    </div>
+                    <div class="card-state-overlay overlay-error hidden">
+                        <h4 class="state-title">Unable to Load Data</h4>
+                        <p class="state-desc">Database error occurred.</p>
+                        <button type="button" class="state-btn btn-retry-card" data-card-key="ageCard">Retry</button>
+                    </div>
+                </article>
+
+                <!-- CARD 2: Total Records + Report Distribution -->
+                <article class="dashboard-flash-card" id="cardReportDist" aria-labelledby="card2Title">
+                    <div class="card-split-layout">
+                        <div class="card-chart-area">
+                            <div class="chart-canvas-container">
+                                <canvas id="chartReportDist" role="img" aria-label="Horizontal bar chart of reports distribution"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-desc-panel">
+                            <span class="card-panel-eyebrow">CLINICAL RECORDS</span>
+                            <h3 class="card-panel-title" id="card2Title">Total Records & Report Distribution</h3>
+                            <div class="card-headline-group">
+                                <span class="card-headline-number">0</span>
+                                <span class="card-headline-context">total records logged</span>
+                            </div>
+                            <p class="card-insight-text">Loading insights...</p>
+                            <div class="card-mini-legend" aria-label="Report breakdown legend"></div>
+                        </div>
+                    </div>
+
+                    <!-- Overlays -->
+                    <div class="card-state-overlay overlay-loading">
+                        <div class="spinner-ring" aria-hidden="true"></div>
+                        <p class="state-desc">Loading report distribution...</p>
+                    </div>
+                    <div class="card-state-overlay overlay-empty hidden">
+                        <h4 class="state-title">No data yet</h4>
+                        <p class="state-desc">No clinical reports found in database.</p>
+                        <button type="button" class="state-btn btn-empty-reset">Refresh Data</button>
+                    </div>
+                    <div class="card-state-overlay overlay-error hidden">
+                        <h4 class="state-title">Unable to Load Data</h4>
+                        <p class="state-desc">Database error occurred.</p>
+                        <button type="button" class="state-btn btn-retry-card" data-card-key="reportCard">Retry</button>
+                    </div>
+                </article>
+
+                <!-- CARD 3: Vaccination Coverage -->
+                <article class="dashboard-flash-card" id="cardVaccination" aria-labelledby="card3Title">
+                    <div class="card-split-layout">
+                        <div class="card-chart-area">
+                            <div class="chart-canvas-container">
+                                <canvas id="chartVaccination" role="img" aria-label="Donut chart showing vaccination coverage"></canvas>
+                            </div>
+                            <div class="donut-center-overlay">
+                                <div class="donut-center-value">0%</div>
+                                <div class="donut-center-label">VACCINATED</div>
+                            </div>
+                        </div>
+                        <div class="card-desc-panel">
+                            <span class="card-panel-eyebrow">IMMUNIZATION</span>
+                            <h3 class="card-panel-title" id="card3Title">Vaccination Coverage</h3>
+                            <div class="card-headline-group">
+                                <span class="card-headline-number">0%</span>
+                                <span class="card-headline-context">coverage rate</span>
+                            </div>
+                            <p class="card-insight-text">Loading insights...</p>
+                            <div class="card-mini-legend" aria-label="Vaccination coverage legend"></div>
+                        </div>
+                    </div>
+
+                    <!-- Overlays -->
+                    <div class="card-state-overlay overlay-loading">
+                        <div class="spinner-ring" aria-hidden="true"></div>
+                        <p class="state-desc">Loading vaccination coverage...</p>
+                    </div>
+                    <div class="card-state-overlay overlay-empty hidden">
+                        <h4 class="state-title">No data yet</h4>
+                        <p class="state-desc">No immunization records available in database.</p>
+                        <button type="button" class="state-btn btn-empty-reset">Refresh Data</button>
+                    </div>
+                    <div class="card-state-overlay overlay-error hidden">
+                        <h4 class="state-title">Unable to Load Data</h4>
+                        <p class="state-desc">Database error occurred.</p>
+                        <button type="button" class="state-btn btn-retry-card" data-card-key="vaccinationCard">Retry</button>
+                    </div>
+                </article>
+
+                <!-- CARD 4: Health Condition Overview -->
+                <article class="dashboard-flash-card" id="cardHealthCondition" aria-labelledby="card4Title">
+                    <div class="card-split-layout">
+                        <div class="card-chart-area">
+                            <div class="chart-canvas-container">
+                                <canvas id="chartHealthCondition" role="img" aria-label="Donut chart showing health condition overview"></canvas>
+                            </div>
+                            <div class="donut-center-overlay">
+                                <div class="donut-center-value">0%</div>
+                                <div class="donut-center-label">HEALTHY</div>
+                            </div>
+                        </div>
+                        <div class="card-desc-panel">
+                            <span class="card-panel-eyebrow">HEALTH STATUS</span>
+                            <h3 class="card-panel-title" id="card4Title">Health Condition Overview</h3>
+                            <div class="card-headline-group">
+                                <span class="card-headline-number">0%</span>
+                                <span class="card-headline-context">in healthy condition</span>
+                            </div>
+                            <p class="card-insight-text">Loading insights...</p>
+                            <div class="card-mini-legend" aria-label="Health condition breakdown legend"></div>
+                        </div>
+                    </div>
+
+                    <!-- Overlays -->
+                    <div class="card-state-overlay overlay-loading">
+                        <div class="spinner-ring" aria-hidden="true"></div>
+                        <p class="state-desc">Loading health conditions...</p>
+                    </div>
+                    <div class="card-state-overlay overlay-empty hidden">
+                        <h4 class="state-title">No data yet</h4>
+                        <p class="state-desc">No child health records available in database.</p>
+                        <button type="button" class="state-btn btn-empty-reset">Refresh Data</button>
+                    </div>
+                    <div class="card-state-overlay overlay-error hidden">
+                        <h4 class="state-title">Unable to Load Data</h4>
+                        <p class="state-desc">Database error occurred.</p>
+                        <button type="button" class="state-btn btn-retry-card" data-card-key="healthCard">Retry</button>
+                    </div>
+                </article>
+            </div>
+        </section>
     </div>
+
+    <!-- Chart.js CDN & Dashboard Script -->
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
 </body>
+

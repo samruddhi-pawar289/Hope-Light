@@ -96,6 +96,8 @@
   function saveToLocalStorage() {
     try {
       localStorage.setItem('hope_light_children', JSON.stringify(allChildren));
+      localStorage.setItem('hope_light_data_updated', String(Date.now()));
+      window.dispatchEvent(new CustomEvent('hope_light:data_manipulated'));
     } catch (e) {
       console.warn('LocalStorage save failed:', e);
     }

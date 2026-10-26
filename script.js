@@ -130,12 +130,21 @@ headers.forEach(header => {
     });
 });
 
-// Periodic polling to keep analytics cards in sync with backend
-window.setInterval(async () => {
+// Sync analytics counter cards when data is manipulated
+async function syncCounters() {
     try {
         const summary = await fetchSummary();
         if (summary) updateCounters(summary);
     } catch (e) {
         // Silently preserve state
     }
-}, 4000);
+}
+
+window.addEventListener("storage", (e) => {
+    if (e.key === "hope_light_data_updated" || e.key === "hope_light_children") {
+        syncCounters();
+    }
+});
+window.addEventListener("hope_light:data_manipulated", syncCounters);
+window.addEventListener("focus", syncCounters);
+

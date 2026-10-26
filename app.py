@@ -10,6 +10,10 @@ from flask import Flask, jsonify, request, send_from_directory
 BASE_DIR = Path(__file__).resolve().parent
 app = Flask(__name__)
 
+from dashboard_api import dashboard_bp
+app.register_blueprint(dashboard_bp)
+
+
 
 @app.before_request
 def handle_preflight():
